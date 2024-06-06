@@ -1,11 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="substack-carousel.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      .input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 1rem;
+      }
+      .input-container label {
+        margin-bottom: 0.5rem;
+      }
+      #customCssFeed,
+      #customCssLoader {
+        width: 80%;
+        height: 4rem;
+      }
+
+      /* Content Section */
+      .content-description {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      code {
+        display: inline-block;
+        padding: 5px;
+        margin: 0;
+        border-radius: 0.25rem;
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+      }
+      pre {
+        display: block;
+        padding: 1rem;
+        margin: 5rem;
+        border-radius: 0.25rem;
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+        overflow-x: auto;
+      }
+      pre {
+        white-space: pre-wrap; /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+        white-space: -pre-wrap; /* Opera 4-6 */
+        white-space: -o-pre-wrap; /* Opera 7 */
+        word-wrap: break-word; /* Internet Explorer 5.5+ */
+      }
+    </style>
+    <script
+      src="substack-carousel.js"
+      type="application/javascript"
+      defer
+    ></script>
   </head>
   <body>
-    <rss-feed
-      feed-url="https://api.pascalcouturier.com/api/service/rssfeed"
-    ></rss-feed>
+    <div class="input-container">
+      <label for="pageNameInput">Page Name:</label>
+      <input id="pageNameInput" type="text" value="sqeel404" />
+
+      <label for="feedAmountInput">Feed Amount:</label>
+      <input id="feedAmountInput" type="number" value="6" />
+
+      <label for="customCssFeed">Custom CSS Feed:</label>
+      <textarea id="customCssFeed"></textarea>
+
+      <label for="customCssLoader">Custom CSS Loader:</label>
+      <textarea id="customCssLoader"></textarea>
+
+      <button id="updateButton" style="margin-top: 1rem">Update Feed</button>
+    </div>
+
+    <substack-rss-feed
+      id="rssFeed"
+      substack-page-name="sqeel404"
+      feed-amount-displayed="6"
+    ></substack-rss-feed>
+
+    <hr />
+
+    <div class="content-description">
+      <h2>Substack RSS Feed Component</h2>
+      <p>
+        This is a short explanation on how the substack rss feed component
+        renderer can work and how it functions.
+      </p>
+      <p>
+        The <code>substack-rss-feed</code> is a custom HTML element that fetches
+        and displays an RSS feed from a specified Substack page. It's a powerful
+        tool that allows you to integrate Substack content directly into your
+        website.
+      </p>
+      <p>
+        To use this component, you need to include it in your HTML file. Here's
+        how you can do it:
+      </p>
+      <p>This component can be customized with several attributes:</p>
+      <ol>
+        <li>
+          <code>substack-page-name</code>: This attribute is used to specify the
+          name of the Substack page from which the RSS feed will be fetched.
+          This is a required attribute for the component to function.
+        </li>
+        <li>
+          <code>show-feed-description</code>: This attribute is a boolean that
+          determines whether the description of the feed should be displayed. By
+          default, it is set to <code>false</code> and it doesn’t need to be
+          provided for default functionality. If you want to show the feed
+          description, set it to <code>true</code>
+        </li>
+        <li>
+          <code>feed-error-message</code>: This is optional and can be used to
+          provide a custom error message when the feed fails to load
+        </li>
+        <li>
+          <code>feed-no-results-message</code>: This is optional and can be used
+          to provide a custom message when there are no results returnd from the
+          feed but the request has returned successfully
+        </li>
+        <li>
+          <code>feed-amount-displayed</code>: This attribute is used to specify
+          the number of feed items to display. By default, it is set to
+          <code>6</code>. You can adjust this number to your liking
+        </li>
+        <li>
+          <code>custom-css-feed</code>: This attribute is used to provide custom
+          CSS for the feed. Instead of a URL, you can provide inline CSS
+        </li>
+        <li>
+          <code>custom-css-loader</code>: This attribute is used to provide
+          custom CSS for the loader. You can also provide inline CSS
+        </li>
+        <li>
+          <code>custom-css-url</code>: You can provide the url of a `.css` file
+          and this will load that css stylesheet
+        </li>
+      </ol>
+      <p>Example of Full Component:</p>
+      <div class="code-block">
+        <pre>
+            &lt;substack-rss-feed 
+                substack-page-name="your-substack-page-name" 
+                show-feed-description="true" 
+                feed-amount-displayed="10" 
+                custom-css-feed=".rss-feed { background-color: green; }"
+                custom-css-loader=".rss-feed__loader { color: #ff0000; }"
+                feed-error-message="There was an error loading the feed"
+                feed-no-results-message="No results were found"
+            &gt;&lt;/substack-rss-feed&gt;
+        </pre>
+      </div>
+      <p>
+        Replace "your-substack-page-name" with the name of your Substack page,
+        and adjust the <code>feed-amount-displayed</code> attribute to the
+        number of feed items you want to display. You can also replace the CSS
+        in <code>custom-css-feed</code> and <code>custom-css-loader</code> with
+        your own CSS to customize the look of the feed and the loader.
+      </p>
+      <p>
+        Please note that the <code>substack-rss-feed</code> component must be
+        imported into your HTML file before you can use it. You can do this by
+        adding a script tag pointing to the
+        <code>substack-carousel.js</code> file in your HTML file:
+      </p>
+      <pre>
+          &lt;script src="https://api.pascalcouturier.com/resources/scripts/components/substack-carousel.js"&gt;&lt;/script&gt;
+      </pre>
+      <p>
+        NOTE: The domain that you are using needs to be added to the API access
+        or there will be CORS errors and it will not be able to load.
+      </p>
+      <p>
+        Please notify the admin of
+        <a href="http://api.pascalcouturier.com/">api.pascalcouturier.com</a> to
+        be able to have your domain added to the list for access on your site.
+      </p>
+    </div>
+
+    <script>
+      document
+        .getElementById("updateButton")
+        .addEventListener("click", function () {
+          var pageName = document.getElementById("pageNameInput").value;
+          var feedAmount = document.getElementById("feedAmountInput").value;
+          var customCssFeed = document.getElementById("customCssFeed").value;
+          var customCssLoader =
+            document.getElementById("customCssLoader").value;
+
+          var rssFeed = document.getElementById("rssFeed");
+          var newRssFeed = rssFeed.cloneNode(true);
+          newRssFeed.setAttribute("substack-page-name", pageName);
+          newRssFeed.setAttribute("feed-amount-displayed", feedAmount);
+          newRssFeed.setAttribute("custom-css-feed", customCssFeed);
+          newRssFeed.setAttribute("custom-css-loader", customCssLoader);
+          rssFeed.parentNode.replaceChild(newRssFeed, rssFeed);
+        });
+    </script>
   </body>
 </html>
