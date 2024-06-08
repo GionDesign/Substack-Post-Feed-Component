@@ -596,4 +596,4 @@ class RssFeed extends HTMLElement {
   }
 }
 
-customElements.define("substack-rss-feed", RssFeed);
+customElements.define("substack-posts-feed", RssFeed);
