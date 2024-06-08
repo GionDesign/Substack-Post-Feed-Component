@@ -1,12 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
       html,
       body {
         margin: 0;
         padding: 0;
-        font-family: Arial, sans-serif;
+        font-family: "Roboto", sans-serif;
+        width: 100%;
+      }
+      .header {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        background-color: #712cf9;
+        color: #fff;
+      }
+      .github-logo {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 10;
+      }
+      .header-title {
+        padding-top: 5rem;
+      }
+      .header h1 {
+        text-align: center;
+        margin: 0;
+        padding: 1rem;
+      }
+      .header-image {
+        padding: 1rem;
+      }
+      .header-image img {
+        width: 100%;
+        max-width: 1000px;
+      }
+      .header-arrow {
+        padding-bottom: 3rem;
+      }
+      .scroll-down {
+        text-decoration: none;
+      }
+
+      .arrow {
+        border: solid white;
+        border-width: 0 10px 10px 0;
+        display: inline-block;
+        padding: 10px;
+        transform: rotate(45deg);
+        -webkit-animation: arrow-animation 2s infinite;
+        animation: arrow-animation 2s infinite;
+      }
+
+      @keyframes arrow-animation {
+        0% {
+          transform: rotate(45deg) translate(0, 0);
+        }
+        50% {
+          transform: rotate(45deg) translate(-10px, -10px);
+        }
+        100% {
+          transform: rotate(45deg) translate(0, 0);
+        }
+      }
+      .demo-title {
+        padding-top: 2rem;
       }
       .input-container {
         display: flex;
@@ -24,10 +104,18 @@
       }
 
       /* Content Section */
+      .content-description-wrapper {
+        background-color: #712cf9;
+        color: #fff;
+      }
       .content-description {
         max-width: 800px;
         margin: 0 auto;
         padding: 2rem;
+      }
+      .feed-preview img {
+        width: 100%;
+        border-radius: 20px;
       }
       code {
         display: inline-block;
@@ -40,11 +128,12 @@
       pre {
         display: block;
         padding: 1rem;
-        margin: 5rem;
+        margin: 5rem 1rem;
         border-radius: 0.25rem;
         background-color: #f5f5f5;
         border: 1px solid #ddd;
         overflow-x: auto;
+        color: #000;
       }
       pre {
         white-space: pre-wrap; /* Since CSS 2.1 */
@@ -53,140 +142,33 @@
         white-space: -o-pre-wrap; /* Opera 7 */
         word-wrap: break-word; /* Internet Explorer 5.5+ */
       }
+      hr {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+      #pageNameInput.error {
+        border-color: red;
+      }
+      .error-message {
+        display: none;
+        color: red;
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+      }
     </style>
     <script
       src="substack-carousel.js"
       type="application/javascript"
       defer
     ></script>
-  </head>
-  <body>
-    <div class="input-container">
-      <label for="pageNameInput">Page Name:</label>
-      <input id="pageNameInput" type="text" value="sqeel404" />
-
-      <label for="feedAmountInput">Feed Amount:</label>
-      <input id="feedAmountInput" type="number" value="6" />
-
-      <label for="customCssFeed">Custom CSS Feed:</label>
-      <textarea id="customCssFeed"></textarea>
-
-      <label for="customCssLoader">Custom CSS Loader:</label>
-      <textarea id="customCssLoader"></textarea>
-
-      <button id="updateButton" style="margin-top: 1rem">Update Feed</button>
-    </div>
-
-    <substack-rss-feed
-      id="rssFeed"
-      substack-page-name="sqeel404"
-      feed-amount-displayed="6"
-    ></substack-rss-feed>
-
-    <hr />
-
-    <div class="content-description">
-      <h2>Substack RSS Feed Component</h2>
-      <p>
-        This is a short explanation on how the substack rss feed component
-        renderer can work and how it functions.
-      </p>
-      <p>
-        The <code>substack-rss-feed</code> is a custom HTML element that fetches
-        and displays an RSS feed from a specified Substack page. It's a powerful
-        tool that allows you to integrate Substack content directly into your
-        website.
-      </p>
-      <p>
-        To use this component, you need to include it in your HTML file. Here's
-        how you can do it:
-      </p>
-      <p>This component can be customized with several attributes:</p>
-      <ol>
-        <li>
-          <code>substack-page-name</code>: This attribute is used to specify the
-          name of the Substack page from which the RSS feed will be fetched.
-          This is a required attribute for the component to function.
-        </li>
-        <li>
-          <code>show-feed-description</code>: This attribute is a boolean that
-          determines whether the description of the feed should be displayed. By
-          default, it is set to <code>false</code> and it doesn’t need to be
-          provided for default functionality. If you want to show the feed
-          description, set it to <code>true</code>
-        </li>
-        <li>
-          <code>feed-error-message</code>: This is optional and can be used to
-          provide a custom error message when the feed fails to load
-        </li>
-        <li>
-          <code>feed-no-results-message</code>: This is optional and can be used
-          to provide a custom message when there are no results returnd from the
-          feed but the request has returned successfully
-        </li>
-        <li>
-          <code>feed-amount-displayed</code>: This attribute is used to specify
-          the number of feed items to display. By default, it is set to
-          <code>6</code>. You can adjust this number to your liking
-        </li>
-        <li>
-          <code>custom-css-feed</code>: This attribute is used to provide custom
-          CSS for the feed. Instead of a URL, you can provide inline CSS
-        </li>
-        <li>
-          <code>custom-css-loader</code>: This attribute is used to provide
-          custom CSS for the loader. You can also provide inline CSS
-        </li>
-        <li>
-          <code>custom-css-url</code>: You can provide the url of a `.css` file
-          and this will load that css stylesheet
-        </li>
-      </ol>
-      <p>Example of Full Component:</p>
-      <div class="code-block">
-        <pre>
-            &lt;substack-rss-feed 
-                substack-page-name="your-substack-page-name" 
-                show-feed-description="true" 
-                feed-amount-displayed="10" 
-                custom-css-feed=".rss-feed { background-color: green; }"
-                custom-css-loader=".rss-feed__loader { color: #ff0000; }"
-                feed-error-message="There was an error loading the feed"
-                feed-no-results-message="No results were found"
-            &gt;&lt;/substack-rss-feed&gt;
-        </pre>
-      </div>
-      <p>
-        Replace "your-substack-page-name" with the name of your Substack page,
-        and adjust the <code>feed-amount-displayed</code> attribute to the
-        number of feed items you want to display. You can also replace the CSS
-        in <code>custom-css-feed</code> and <code>custom-css-loader</code> with
-        your own CSS to customize the look of the feed and the loader.
-      </p>
-      <p>
-        Please note that the <code>substack-rss-feed</code> component must be
-        imported into your HTML file before you can use it. You can do this by
-        adding a script tag pointing to the
-        <code>substack-carousel.js</code> file in your HTML file:
-      </p>
-      <pre>
-          &lt;script src="https://api.pascalcouturier.com/resources/scripts/components/substack-carousel.js"&gt;&lt;/script&gt;
-      </pre>
-      <p>
-        NOTE: The domain that you are using needs to be added to the API access
-        or there will be CORS errors and it will not be able to load.
-      </p>
-      <p>
-        Please notify the admin of
-        <a href="http://api.pascalcouturier.com/">api.pascalcouturier.com</a> to
-        be able to have your domain added to the list for access on your site.
-      </p>
-    </div>
 
     <script>
       document
         .getElementById("updateButton")
         .addEventListener("click", function () {
+          console.log("Button clicked");
+          event.preventDefault();
+
           var pageName = document.getElementById("pageNameInput").value;
           var feedAmount = document.getElementById("feedAmountInput").value;
           var customCssFeed = document.getElementById("customCssFeed").value;
@@ -201,6 +183,401 @@
           newRssFeed.setAttribute("custom-css-loader", customCssLoader);
           rssFeed.parentNode.replaceChild(newRssFeed, rssFeed);
         });
+    </script>
+    <script>
+      function checkInput() {
+        var pageNameInput = document.getElementById("pageNameInput");
+        var updateButton = document.getElementById("updateButton");
+        var errorMessage = document.getElementById("pageNameInputError");
+
+        if (pageNameInput.value.trim() === "") {
+          updateButton.disabled = true;
+          pageNameInput.classList.add("error");
+          errorMessage.style.display = "block";
+        } else {
+          updateButton.disabled = false;
+          pageNameInput.classList.remove("error");
+          errorMessage.style.display = "none";
+        }
+      }
+
+      // Call checkInput initially to set the button state based on the initial input value
+      checkInput();
+    </script>
+  </head>
+  <body>
+    <div class="header">
+      <div class="github-logo">
+        <a href="" target="_blank">
+          <img
+            src="/images/github-corner.png"
+            alt="GitHub Logo"
+            style="width: 100px"
+          />
+        </a>
+      </div>
+
+      <div class="header-title">
+        <h1>Substack Post Feed Component</h1>
+        <hr class="header-break" />
+        <p class="lead lead-md">
+          A small and simple Substack post feed component for your website
+        </p>
+      </div>
+      <div class="header-image">
+        <img src="/images/example-feed-header.png" alt="Substack Logo" />
+      </div>
+      <div class="header-arrow">
+        <a href="#form-section" class="scroll-down">
+          <span class="arrow"></span>
+        </a>
+      </div>
+    </div>
+
+    <hr />
+
+    <form class="row g-3 needs-validation" novalidate id="form-section">
+      <span class="col-2"></span>
+      <h2 class="demo-title col-10">Demo:</h2>
+      <span class="col-2"></span>
+      <div class="col-md-4">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="pageNameInput"
+            placeholder="sqeel404"
+            value="sqeel404"
+            oninput="checkInput()"
+            required
+          />
+          <label for="pageNameInput">Substack page name:</label>
+          <p id="pageNameInputError" class="error-message">
+            Substack page name is required
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="feedAmountInput"
+            placeholder="6"
+            value="6"
+            required
+          />
+          <label for="feedAmountInput">Feed amount to display:</label>
+        </div>
+      </div>
+      <span class="col-2"></span>
+      <!-- CSS textarea fields -->
+
+      <span class="col-2"></span>
+      <div class="col-md-8">
+        <div class="form-floating">
+          <textarea
+            class="form-control"
+            placeholder="Inline css styling for substack feed"
+            id="customCssFeed"
+            style="height: 150px; width: 100%"
+          ></textarea>
+          <label for="customCssFeed">Custom CSS feed styling:</label>
+        </div>
+      </div>
+
+      <span class="col-2"></span>
+      <span class="col-2"></span>
+
+      <div class="col-md-8">
+        <div class="form-floating">
+          <textarea
+            class="form-control"
+            placeholder="Inline css styling for loading"
+            id="customCssLoader"
+            style="height: 150px; width: 100%"
+          ></textarea>
+          <label for="customCssLoader">Custom CSS loader styling:</label>
+        </div>
+      </div>
+
+      <span class="col-2"></span>
+
+      <div class="col-12 text-center">
+        <button
+          id="updateButton"
+          type="submit"
+          class="btn btn-primary"
+          style="margin-top: 1rem; margin-bottom: 1rem"
+        >
+          Update Feed
+        </button>
+      </div>
+    </form>
+
+    <hr />
+
+    <substack-rss-feed
+      id="rssFeed"
+      substack-page-name="sqeel404"
+      feed-amount-displayed="6"
+    ></substack-rss-feed>
+
+    <hr />
+    <div class="content-description-wrapper">
+      <div class="content-description">
+        <h2 class="display-5">Implementation Details:</h2>
+        <p>
+          This is a short explanation on how the substack rss feed component
+          renderer can work and how it functions.
+        </p>
+        <br />
+        <h3>Feed Preview:</h3>
+
+        <p>An example of how the feed can render is displayed below:</p>
+
+        <div class="feed-preview">
+          <img src="/images/feed preview.png" alt="Substack RSS Feed Preview" />
+        </div>
+
+        <br />
+        <hr />
+        <br />
+        <h3>FAQs:</h3>
+
+        <p>A breakdown of how the component can work and function:</p>
+
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                Component Usage:
+              </button>
+            </h2>
+            <div
+              id="collapseOne"
+              class="accordion-collapse collapse show"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <h3>How to use the component</h3>
+                <p>
+                  The <code>substack-rss-feed</code> is a custom HTML element
+                  that fetches and displays an RSS feed from a specified
+                  Substack page. It's a powerful tool that allows you to
+                  integrate Substack content directly into your website.
+                </p>
+                <p>
+                  To use this component, you need to include it in your HTML
+                  file. Here's how you can do it:
+                </p>
+                <p>This component can be customized with several attributes:</p>
+                <ol>
+                  <li>
+                    <code>substack-page-name</code>: This attribute is used to
+                    specify the name of the Substack page from which the RSS
+                    feed will be fetched. This is a required attribute for the
+                    component to function.
+                  </li>
+                  <li>
+                    <code>show-feed-description</code>: This attribute is a
+                    boolean that determines whether the description of the feed
+                    should be displayed. By default, it is set to
+                    <code>false</code> and it doesn’t need to be provided for
+                    default functionality. If you want to show the feed
+                    description, set it to <code>true</code>
+                  </li>
+                  <li>
+                    <code>feed-error-message</code>: This is optional and can be
+                    used to provide a custom error message when the feed fails
+                    to load
+                  </li>
+                  <li>
+                    <code>feed-no-results-message</code>: This is optional and
+                    can be used to provide a custom message when there are no
+                    results returnd from the feed but the request has returned
+                    successfully
+                  </li>
+                  <li>
+                    <code>feed-amount-displayed</code>: This attribute is used
+                    to specify the number of feed items to display. By default,
+                    it is set to <code>6</code>. You can adjust this number to
+                    your liking
+                  </li>
+                  <li>
+                    <code>custom-css-feed</code>: This attribute is used to
+                    provide custom CSS for the feed. Instead of a URL, you can
+                    provide inline CSS
+                  </li>
+                  <li>
+                    <code>custom-css-loader</code>: This attribute is used to
+                    provide custom CSS for the loader. You can also provide
+                    inline CSS
+                  </li>
+                  <li>
+                    <code>custom-css-url</code>: You can provide the url of a
+                    `.css` file and this will load that css stylesheet
+                  </li>
+                </ol>
+                <p>Example of Full Component:</p>
+                <div class="code-block">
+                  <pre>
+                    &lt;substack-rss-feed 
+                        substack-page-name="your-substack-page-name" 
+                        show-feed-description="true" 
+                        feed-amount-displayed="10" 
+                        custom-css-feed=".rss-feed { background-color: green; }"
+                        custom-css-loader=".rss-feed__loader { color: #ff0000; }"
+                        feed-error-message="There was an error loading the feed"
+                        feed-no-results-message="No results were found"
+                    &gt;&lt;/substack-rss-feed&gt;
+                </pre
+                  >
+                </div>
+                <p>
+                  Replace "your-substack-page-name" with the name of your
+                  Substack page, and adjust the
+                  <code>feed-amount-displayed</code> attribute to the number of
+                  feed items you want to display. You can also replace the CSS
+                  in <code>custom-css-feed</code> and
+                  <code>custom-css-loader</code> with your own CSS to customize
+                  the look of the feed and the loader.
+                </p>
+                <p>
+                  Please note that the <code>substack-rss-feed</code> component
+                  must be imported into your HTML file before you can use it.
+                  You can do this by adding a script tag pointing to the
+                  <code>substack-carousel.js</code> file in your HTML file:
+                </p>
+                <pre>
+                  &lt;script src="https://api.pascalcouturier.com/resources/scripts/components/substack-carousel.js"&gt;&lt;/script&gt;
+              </pre
+                >
+                <p>
+                  NOTE: The domain that you are using needs to be added to the
+                  API access or there will be CORS errors and it will not be
+                  able to load.
+                </p>
+                <p>
+                  Please notify the admin of
+                  <a href="http://api.pascalcouturier.com/"
+                    >api.pascalcouturier.com</a
+                  >
+                  to be able to have your domain added to the list for access on
+                  your site.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                CSS Classes:
+              </button>
+            </h2>
+            <div
+              id="collapseTwo"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <p>
+                  You can customise the css classes to tyarget them directly, or
+                  override them in the css attributes of the component.
+                </p>
+                <p>The classes that are available are below:</p>
+                <ul class="css-class-list">
+                  <li>rss-feed</li>
+                  <li>rss-feed__section-break</li>
+                  <li>rss-feed__loader</li>
+                  <li>rss-feed__default-placeholder</li>
+                  <li>rss-feed__grid</li>
+                  <li>rss-feed__button</li>
+                  <li>rss-feed__item-container</li>
+                  <li>rss-feed__item-image-container</li>
+                  <li>rss-feed__item-image</li>
+                  <li>rss-feed__item-title</li>
+                  <li>rss-feed__item-description</li>
+                  <li>rss-feed__item-published</li>
+                  <li>no-results-message</li>
+                  <li>rss-feed__error</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                Accordion Item #3
+              </button>
+            </h2>
+            <div
+              id="collapseThree"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <strong>This is the third item's accordion body.</strong> It is
+                hidden by default, until the collapse plugin adds the
+                appropriate classes that we use to style each element. These
+                classes control the overall appearance, as well as the showing
+                and hiding via CSS transitions. You can modify any of this with
+                custom CSS or overriding our default variables. It's also worth
+                noting that just about any HTML can go within the
+                <code>.accordion-body</code>, though the transition does limit
+                overflow.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <hr />
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="text-center">
+              &copy; 2021 - <span id="currentYear"></span> - Substack Post Feed
+              Component -
+              <a
+                href="https://pascalcouturier.com"
+                target="_blank"
+                style="color: #000"
+                >Pascal Couturier</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
     </script>
   </body>
 </html>
