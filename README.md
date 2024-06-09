@@ -16,7 +16,7 @@ This is a short explanation on how the substack rss feed component renderer can 
 
 An example of how the feed can render is displayed below:
 
-![Substack RSS Feed Preview](/images/feed preview.png)
+![Substack RSS Feed Preview](/images/feed%20preview.png)
 
 ### FAQs
 
