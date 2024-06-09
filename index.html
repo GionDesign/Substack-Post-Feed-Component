@@ -58,6 +58,10 @@
       .header-disclaimer {
         font-size: 0.6rem;
       }
+      .header-version {
+        font-size: 0.6rem;
+        font-weight: 700;
+      }
       .header-image {
         padding: 1rem;
       }
@@ -246,6 +250,7 @@
           * this is in Alpha and not fully production ready, please watch the
           FAQ's as some parts could change without notice
         </p>
+        <p class="header-version">Version: 0.0.1-Alpha</p>
       </div>
       <div class="header-image">
         <picture>
@@ -548,21 +553,190 @@
                   override them in the css attributes of the component.
                 </p>
                 <p>The classes that are available are below:</p>
-                <ul class="css-class-list">
-                  <li>rss-feed</li>
-                  <li>rss-feed__section-break</li>
-                  <li>rss-feed__loader</li>
-                  <li>rss-feed__default-placeholder</li>
-                  <li>rss-feed__grid</li>
-                  <li>rss-feed__button</li>
-                  <li>rss-feed__item-container</li>
-                  <li>rss-feed__item-image-container</li>
-                  <li>rss-feed__item-image</li>
-                  <li>rss-feed__item-title</li>
-                  <li>rss-feed__item-description</li>
-                  <li>rss-feed__item-published</li>
-                  <li>no-results-message</li>
-                  <li>rss-feed__error</li>
+                <ul>
+                  <li>
+                    <strong>rss-feed:</strong>
+                    <ul>
+                      <li>
+                        This class is used for the main container of the feed.
+                      </li>
+                      <li>
+                        <strong>Default:</strong> Sets the padding and color for
+                        the feed.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>rss-feed__loader:</strong>
+                    <ul>
+                      <li>
+                        This class is used for the loading state of the feed.
+                      </li>
+                      <li>
+                        <strong>Default:</strong> Centers the text and sets the
+                        margin.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>rss-feed__error:</strong>
+                    <ul>
+                      <li>
+                        This class is used for the error state of the feed.
+                      </li>
+                      <li>
+                        <strong>Default:</strong> Centers the text and sets the
+                        margin.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>rss-feed__section-break:</strong>
+                    <ul>
+                      <li>
+                        This class is used for the section break in the feed.
+                      </li>
+                      <li>
+                        <strong>Default:</strong> Sets the width, height,
+                        background, and margin.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>rss-feed__default-placeholder:</strong>
+                    <ul>
+                      <li>
+                        This class is used for the default placeholder in the
+                        feed.
+                      </li>
+                      <li>
+                        <strong>Default:</strong> Centers the text and sets the
+                        margin.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>rss-feed__grid:</strong>
+                    <ul>
+                      <li>
+                        This class is used for the grid layout of the feed
+                        items.
+                      </li>
+                      <li>
+                        <strong>Default:</strong> Sets the display to grid, sets
+                        the margin, and defines the grid template columns.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>rss-feed__button:</strong>
+                    <ul>
+                      <li>This class is used for the button in the feed.</li>
+                      <li>
+                        <strong>Default:</strong> Centers the text, sets the
+                        display to block, and sets the margin and max-width.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>rss-feed__item-container:</strong>
+                    <ul>
+                      <li>
+                        This class is used for the container of each feed item.
+                      </li>
+                      <li>
+                        <strong>Default:</strong> Sets the color, background,
+                        margin, text decoration, display, flex direction, align
+                        items, justify content, text align, height, border
+                        radius, padding, box shadow, and transition.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>rss-feed__item-image-container:</strong>
+                    <ul>
+                      <li>
+                        This class is used for the image container of each feed
+                        item.
+                      </li>
+                      <li>
+                        <strong>Default:</strong> Sets the width, height, and
+                        margin-bottom.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>rss-feed__item-image:</strong>
+                    <ul>
+                      <li>
+                        This class is used for the image of each feed item.
+                      </li>
+                      <li>
+                        <strong>Default:</strong> Sets the max-width,
+                        max-height, and border radius.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>rss-feed__item-title:</strong>
+                    <ul>
+                      <li>
+                        This class is used for the title of each feed item.
+                      </li>
+                      <li>
+                        <strong>Default:</strong> Sets the font weight and
+                        margin-bottom.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>rss-feed__item-description:</strong>
+                    <ul>
+                      <li>
+                        This class is used for the description of each feed
+                        item.
+                      </li>
+                      <li><strong>Default:</strong> Sets the font size.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>rss-feed__item-published:</strong>
+                    <ul>
+                      <li>
+                        This class is used for the published date of each feed
+                        item.
+                      </li>
+                      <li>
+                        <strong>Default:</strong> Sets the font size,
+                        margin-bottom, and font weight.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>no-results-message:</strong>
+                    <ul>
+                      <li>
+                        This class is used for the message displayed when there
+                        are no results.
+                      </li>
+                      <li>
+                        <strong>Default:</strong> Centers the text and sets the
+                        font weight.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>feed-description:</strong>
+                    <ul>
+                      <li>
+                        This class is used for the description of the feed.
+                      </li>
+                      <li>
+                        <strong>Default:</strong> Used to control the display
+                        property of the feed description.
+                      </li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -602,8 +776,9 @@
         <div class="row">
           <div class="col-md-12">
             <p class="text-center">
-              &copy; 2021 - <span id="currentYear"></span> - Substack Post Feed
-              Component -
+              &copy; <span id="currentYear"></span> - Substack Post Feed
+              Component - <span style="font-weight: 700">V.0.0.1-Alpha</span>
+              <br />
               <a
                 href="https://pascalcouturier.com"
                 target="_blank"

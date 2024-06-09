@@ -4,6 +4,8 @@ A small and simple responsive Substack post feed component for your website.
 
 > **Note:** This is in Alpha phase and not fully production ready, please watch the FAQs as some parts could change without notice.
 
+> **Version: 0.0.1-Alpha**
+
 ---
 
 ## Implementation Details
@@ -53,9 +55,13 @@ Example of Full Component:
 ></substack-posts-feed>
 ```
 
-Replace "your-substack-page-name" with the name of your Substack page, and adjust the `feed-amount-displayed` attribute to the number of feed items you want to display. You can also replace the CSS in `custom-css-feed` and `custom-css-loader` with your own CSS to customize the look of the feed and the loader.
+Replace "your-substack-page-name" with the name of your Substack page, and adjust the `feed-amount-displayed` attribute to the number of feed items you want to display. 
 
-Please note that the `substack-posts-feed` component must be imported into your HTML file before you can use it. You can do this by adding a script tag pointing to the `substack-carousel.js` file in your HTML file:
+You can also replace the CSS in `custom-css-feed` and `custom-css-loader` with your own CSS to customize the look of the feed and the loader.
+
+Please note that the `substack-posts-feed` component must be imported into your HTML file before you can use it. 
+
+You can do this by adding a script tag pointing to the `substack-carousel.js` file in your HTML file:
 
 ```html
 <script src="https://api.pascalcouturier.com/resources/scripts/components/substack-post-feed.js"></script>
@@ -69,21 +75,72 @@ You can customize the CSS classes to target them directly, or override them in t
 
 The classes that are available are below:
 
-- rss-feed
-- rss-feed__section-break
-- rss-feed__loader
-- rss-feed__default-placeholder
-- rss-feed__grid
-- rss-feed__button
-- rss-feed__item-container
-- rss-feed__item-image-container
-- rss-feed__item-image
-- rss-feed__item-title
-- rss-feed__item-description
-- rss-feed__item-published
-- no-results-message
-- rss-feed__error
+- `rss-feed`: 
+  - This class is used for the main container of the feed. 
+    - **Default**: Sets the padding and color for the feed.
+
+- `rss-feed__loader`: 
+  - This class is used for the loading state of the feed. 
+    - **Default**: Centers the text and sets the margin.
+
+- `rss-feed__error`: 
+  - This class is used for the error state of the feed. 
+    - **Default**: Centers the text and sets the margin.
+
+- `rss-feed__section-break`: 
+  - This class is used for the section break in the feed. 
+    - **Default**: Sets the width, height, background, and margin.
+
+- `rss-feed__default-placeholder`: 
+  - This class is used for the default placeholder in the feed. 
+    - **Default**: Centers the text and sets the margin.
+
+- `rss-feed__grid`: 
+  - This class is used for the grid layout of the feed items.
+    - **Default**: Sets the display to grid, sets the margin, and defines the grid template columns.
+
+- `rss-feed__button`: 
+  - This class is used for the button in the feed.
+    - **Default**: Centers the text, sets the display to block, and sets the margin and max-width.
+
+- `rss-feed__item-container`: 
+  - This class is used for the container of each feed item. 
+    - **Default**: Sets the color, background, margin, text decoration, display, flex direction, align items, justify content, text align, height, border radius, padding, box shadow, and transition.
+
+- `rss-feed__item-image-container`: 
+  - This class is used for the image container of each feed item. 
+    - **Default**: Sets the width, height, and margin-bottom.
+
+- `rss-feed__item-image`: 
+  - This class is used for the image of each feed item. 
+    - **Default**: Sets the max-width, max-height, and border radius.
+
+- `rss-feed__item-title`: 
+  - This class is used for the title of each feed item. 
+    - **Default**: Sets the font weight and margin-bottom.
+
+- `rss-feed__item-description`: 
+  - This class is used for the description of each feed item. 
+    - **Default**: Sets the font size.
+
+- `rss-feed__item-published`: 
+  - This class is used for the published date of each feed item. 
+    - **Default**: Sets the font size, margin-bottom, and font weight.
+
+- `no-results-message`: 
+  - This class is used for the message displayed when there are no results. 
+    - **Default**: Centers the text and sets the font weight.
+
+- `feed-description`: 
+  - This class is used for the description of the feed. 
+    - **Default**: Used to control the display property of the feed description.
 
 ## Coming Soon
 
 More updates and changes are coming soon so keep posted! 😁
+
+---
+
+## Versions
+
+- **0.0.1-Alpha**: Initial testing version
