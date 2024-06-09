@@ -67,7 +67,7 @@ You can do this by adding a script tag pointing to the `substack-carousel.js` fi
 <script src="https://api.pascalcouturier.com/resources/scripts/components/substack-post-feed.js"></script>
 ```
 
-> **NOTE:** The domain that you are using needs to be added to the API access or there will be CORS errors and it will not be able to load. Please notify the admin of [api.pascalcouturier.com](http://api.pascalcouturier.com/) to be able to have your domain added to the list for access on your site.
+> **NOTE:** The domain that you are using needs to be added to the API access or there will be errors and it will not be able to load. Please notify the admin of [api.pascalcouturier.com](http://api.pascalcouturier.com/) to be able to have your domain added to the list for access on your site.
 
 ## CSS Classes
 
