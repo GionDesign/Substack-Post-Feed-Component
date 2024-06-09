@@ -158,11 +158,12 @@
         color: #000;
       }
       pre {
-        white-space: pre-wrap; /* Since CSS 2.1 */
+        white-space: pre; /* Since CSS 2.1 */
         white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
         white-space: -pre-wrap; /* Opera 4-6 */
         white-space: -o-pre-wrap; /* Opera 7 */
         word-wrap: break-word; /* Internet Explorer 5.5+ */
+        text-align: left;
       }
       hr {
         margin-top: 1rem;
@@ -453,15 +454,15 @@
                 <p>Example of Full Component:</p>
                 <div class="code-block">
                   <pre>
-                    &lt;substack-posts-feed 
-                        substack-page-name="your-substack-page-name" 
-                        show-feed-description="true" 
-                        feed-amount-displayed="10" 
-                        custom-css-feed=".rss-feed { background-color: green; }"
-                        custom-css-loader=".rss-feed__loader { color: #ff0000; }"
-                        feed-error-message="There was an error loading the feed"
-                        feed-no-results-message="No results were found"
-                    &gt;&lt;/substack-posts-feed&gt;
+&lt;substack-posts-feed 
+    substack-page-name="your-substack-page-name" 
+    show-feed-description="true" 
+    feed-amount-displayed="10" 
+    custom-css-feed=".rss-feed { background-color: green; }"
+    custom-css-loader=".rss-feed__loader { color: #ff0000; }"
+    feed-error-message="There was an error loading the feed"
+    feed-no-results-message="No results were found"
+&gt;&lt;/substack-posts-feed&gt;
                 </pre
                   >
                 </div>
@@ -482,7 +483,7 @@
                   <code>substack-carousel.js</code> file in your HTML file:
                 </p>
                 <pre>
-                  &lt;script src="https://api.pascalcouturier.com/resources/scripts/components/substack-post-feed.js"&gt;&lt;/script&gt;
+&lt;script src="https://api.pascalcouturier.com/resources/scripts/components/substack-post-feed.js"&gt;&lt;/script&gt;
               </pre
                 >
                 <div class="alert alert-info rounded" role="alert">
