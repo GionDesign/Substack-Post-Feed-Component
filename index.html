@@ -81,6 +81,8 @@
       }
       .scroll-down {
         text-decoration: none;
+        background: none;
+        border: none;
       }
 
       .arrow {
@@ -248,9 +250,12 @@
         </picture>
       </div>
       <div class="header-arrow">
-        <a href="#form-section" class="scroll-down">
+        <button
+          onclick="document.getElementById('form-section').scrollIntoView();"
+          class="scroll-down"
+        >
           <span class="arrow"></span>
-        </a>
+        </button>
       </div>
     </div>
 
@@ -344,7 +349,7 @@
       </div>
     </form>
 
-    <hr />
+    <hr id="substack-demo-heading" />
     <h2 class="text-center">Substack Feed:</h2>
     <hr />
 
@@ -828,6 +833,11 @@
             document.getElementById("customCssLoader").value;
 
           var rssFeed = document.getElementById("rssFeed");
+          var rssFeedDemoHeading = document.getElementById(
+            "substack-demo-heading"
+          );
+
+          rssFeedDemoHeading.scrollIntoView();
           var newRssFeed = rssFeed.cloneNode(true);
           newRssFeed.setAttribute("substack-page-name", pageName);
           newRssFeed.setAttribute("feed-amount-displayed", feedAmount);
